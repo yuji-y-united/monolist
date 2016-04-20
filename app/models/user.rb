@@ -22,12 +22,12 @@ class User < ActiveRecord::Base
   
   # itemをwantする
   def want(item)
-      want_items.find_or_create_by(item_id: item.id)
+      ownerships.find_or_create_by(item_id: item.id, type: "Want")
   end
     
   # itemのwantを解除する
   def unwant(item)
-      want_item = want_items.find_by(item_id: item.id)
+      want_item = ownerships.find_by(item_id: item.id, type: "Want")
       want_item.destroy if want_item
   end
     
@@ -38,12 +38,12 @@ class User < ActiveRecord::Base
   
   # itemをhaveする
   def have(item)
-      have_items.find_or_create_by(item_id: item.id)
+      ownerships.find_or_create_by(item_id: item.id, type: "Have")
   end
     
   # itemのhaveを解除する
   def unhave(item)
-      have_item = have_items.find_by(item_id: item.id)
+      have_item = ownerships.find_by(item_id: item.id, type: "Have")
       have_item.destroy if have_item
   end
     
