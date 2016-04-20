@@ -64,23 +64,4 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following_users.include?(other_user)
   end
-
-  ## TODO 実装
-  def have(item)
-  end
-
-  def unhave(item)
-  end
-
-  def have?(item)
-  end
-
-  def want(item)
-  end
-
-  def unwant(item)
-  end
-
-  def want?(item)
-  end
 end
