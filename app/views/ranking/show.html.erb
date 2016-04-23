@@ -2,4 +2,8 @@
  this is rank page
 <% end %>
 
+<% if @items != nil %>
+
 <%= render 'items/list' , items: @items %>
+
+<% end %>
