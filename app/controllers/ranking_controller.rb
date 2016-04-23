@@ -16,7 +16,6 @@ class RankingController < ApplicationController
             else
                @items = items 
             end
-            p @items.first.want_users.count
         elsif params[:id] == "have"
             items = Have.select("item_id").uniq
             items = Item.where(id: items)

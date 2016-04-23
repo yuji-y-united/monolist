@@ -2,8 +2,8 @@
  this is rank page
 <% end %>
 
-<% if @items != nil %>
-
-<%= render 'items/list' , items: @items %>
-
+<% if @items.size != 0 %>
+  <%= render 'items/list' , items: @items %>
+<% else %>
+  <p>ランキングはありません</p>
 <% end %>
