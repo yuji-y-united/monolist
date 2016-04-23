@@ -42,6 +42,29 @@
       -webkit-line-clamp: 2;
     }
   }
+  .rankheader {
+    height: 30px;
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-bottom: 0;
+    background: #fafafa;
+    font-size: 15px;
+    font-weight: bold;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    text-align: center;
+  }
+  .want_have {
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-top: 0;
+    background: #ffffff;
+    font-size: 13px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    text-align: right;
+  }
   .action {
     form {
       float: left;

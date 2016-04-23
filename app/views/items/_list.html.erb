@@ -1,7 +1,12 @@
 <div class="container">
   <div class="container-inner inner-default clearfix">
-    <% items.each do |item| %>
+    <% items.each_with_index do |item, rank| %>
       <div class="item-box">
+        <% if content_for?(:rank) %>
+        <div class="rankheader">
+            <p><%= rank+1 %>位</p>
+        </div>
+        <% end %>
         <div class="image">
           <div class="img-wrap">
             <% if item.large_image.present? %>
@@ -15,6 +20,9 @@
           <p class="title">
             <%= item.title %>
           </p>
+        </div>
+        <div class="want_have">
+          <p>Want: <%= item.want_users.count %> &nbsp;&nbsp; Have: <%= item.have_users.count %></p>
         </div>
         <%= render 'items/action' , item: item if logged_in? %>
       </div>
