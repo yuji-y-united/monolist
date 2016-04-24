@@ -4,31 +4,9 @@ class RankingController < ApplicationController
     
     def show
         if params[:id] == "want"
-            items = Want.select("item_id").uniq
-            items = Item.where(id: items)
-            items = items.sort { |a, b|
-                b.want_users.count <=> a.want_users.count
-            }
-            if items.count > 10
-                for i in 0..9 do
-                    @items << items[i]
-                end
-            else
-               @items = items 
-            end
+            @items = Want.limit(10).group(:item_id).order('count_all desc').count
         elsif params[:id] == "have"
-            items = Have.select("item_id").uniq
-            items = Item.where(id: items)
-            items = items.sort { |a, b|
-                b.have_users.count <=> a.have_users.count
-            }
-            if items.count > 10
-                for i in 0..9 do
-                    @items << items[i]
-                end
-            else
-               @items = items 
-            end
+            @items = Have.limit(10).group(:item_id).order('count_all desc').count
         end
     
     end

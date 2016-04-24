@@ -3,6 +3,7 @@
     <% items.each_with_index do |item, rank| %>
       <div class="item-box">
         <% if content_for?(:rank) %>
+        <% item = Item.find(item[0]) %>
         <div class="rankheader">
             <p><%= rank+1 %>位</p>
         </div>
